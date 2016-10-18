@@ -26,9 +26,9 @@
 	
 ![这里写图片描述](http://img.blog.csdn.net/20161018112622015)
 
-	 - **square.c**
+- **square.c**
 	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是定义平方进程square_fire函数：读入输入信号i，将其平方后写入到输出端，重复length次之后停下来。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是定义平方进程square_fire函数：读入输入信号i，将其平方后写入到输出端，重复length次之后停下来。
 	
 ![这里写图片描述](http://img.blog.csdn.net/20161018112745267)
 		
