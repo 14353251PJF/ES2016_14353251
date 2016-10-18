@@ -9,6 +9,7 @@
  - 先来分析example1的代码：
 
 	这是example1.xml文件，如下图所示：
+	
  ![这里写图片描述](http://img.blog.csdn.net/20161018111033328)
 
 	里面有三个进程，分别是：generator、consumer，square，
@@ -16,16 +17,19 @@
 	 - **generator.c**
 	
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是定义进程，先初始化，也就是执行generator_init函数，然后再执行generator_fire函数：当前位置小于生产长度，则将当前下标写入到输出端，否则就销毁进程。让程序被发射、开火。执行length次后停下来。
+	
 	![这里写图片描述](http://img.blog.csdn.net/20161018112149490)
 
 	 - **consumer.c**
 	
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是定义消费者进程，先初始化，也就是执行consumer_init函数，然后再执行consumer_fire函数：当前位置小于设定长度，则读出输入信号，并且打印，否则就销毁进程（停下来）。
+	
 ![这里写图片描述](http://img.blog.csdn.net/20161018112622015)
 
 	 - **square.c**
 	
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是定义平方进程square_fire函数：读入输入信号i，将其平方后写入到输出端，重复length次之后停下来。
+	
 ![这里写图片描述](http://img.blog.csdn.net/20161018112745267)
 		
 
@@ -38,12 +42,14 @@
 	那么任务一就不难实现，只要将平方模块square中的主要处理操作公式“i=i∗i”改为“i=i∗i∗i”即可。
 
 	最后结果为： 
+	
 　
 ![这里写图片描述](http://img.blog.csdn.net/20161018121606988)
 
 
 	
 	下面是得到的example1的.dot图：
+	
 ![这里写图片描述](http://img.blog.csdn.net/20161018121810959)
 
 
@@ -53,18 +59,25 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;与example1原理差不多，只是在xml文件里面修改，使得3个square变为两个square，也就是把xml里面的N由原来的3改为2就可以了。由于可以迭代生成，也就是iterator代码，相当于循环，不断生成square，我们要实现任务二，就把iterator的次数改一下，改为N=2就可以了。迭代生成的代码里面本身就包含了进程process、通道sw_channel、连接connection，端口的生成也是迭代生成的。
 		
 原来的“3”：
+
 	![这里写图片描述](http://img.blog.csdn.net/20161018122954927)
+	
 改为“2”：
+
 ![这里写图片描述](http://img.blog.csdn.net/20161018123031084)
+
 ietartor：
+
 ![这里写图片描述](http://img.blog.csdn.net/20161018123137131)
 
  -运行example2.xml的结果：
  
 ![这里写图片描述](http://img.blog.csdn.net/20161018123355601)
+
 可见结果正确。
 
 下面是修改后的example2的.dot图：
+
 ![这里写图片描述](http://img.blog.csdn.net/20161018123533461)
 
 于是，完成了本次实验。
