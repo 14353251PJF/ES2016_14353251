@@ -2,7 +2,7 @@
 
 姓名：彭靖芳 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学号:14353251
 
-####**example 1**####
+**example 1**
 
 修改example1，使其输出三次方数：
 
@@ -52,7 +52,7 @@
 ![这里写图片描述](http://img.blog.csdn.net/20161018121810959)
 
 
-####**example 2**####
+**example 2**
 修改example2，让3个square模块变成2个：
 	
 与example1原理差不多，只是在xml文件里面修改，使得3个square变为两个square，也就是把xml里面的N由原来的3改为2就可以了。由于可以迭代生成，也就是iterator代码，相当于循环，不断生成square，我们要实现任务二，就把iterator的次数改一下，改为N=2就可以了。迭代生成的代码里面本身就包含了进程process、通道sw_channel、连接connection，端口的生成也是迭代生成的。
@@ -82,7 +82,7 @@ ietartor：
 于是，完成了本次实验。
 
 
-####**实验感想**####
+**实验感想**
 
 这次试验理解原理之后再做，不难，就改了两个值。TA上课讲的较慢，所以实验课就理解了。三个进程generator、consumer、square只是执行内部的功能，xml文件起的是把他们连接起来的作用。定义output、input、端口名字、通道定义（一条线就是一条通道）。连接各个模块，一条线对应两条连接。
 Example1中，generator是产生0-19的整数，square就是对整数（输入）做平方处理，consumer就是输出结果。example1包含一个square进程，没有使用迭代iterator，example2包含三个square进程，结果也就是i^8，后来改为两个square，结果也就是i^4。本次试验不难懂，只要细心，自信看实验文档，仔细看代码，理解每一行，每一块代码就可以了。
